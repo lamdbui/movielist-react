@@ -1,6 +1,8 @@
 var MovieList = (props) => (
   <div className="movie-list">
-    {props.movies.map((movie, index) => <div>{movie.title}</div>)}
+    <ul className="list-group">
+      {props.movies.map((movie, index) => <MovieListEntry movie={movie} key={index} />)}
+    </ul>
   </div>
 );
 

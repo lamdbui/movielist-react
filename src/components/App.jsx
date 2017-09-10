@@ -1,9 +1,8 @@
 var App = (props) => (
   <div>
     <nav className="navbar">
-      <div className="col-md-6 offset-md-3">
-        <div>Search here!</div>
-      </div>
+      <h3 className="text-muted">Movie List</h3>
+      <div className="search">Search here!</div>
     </nav>
     <div className="row">
       <div className="col">
