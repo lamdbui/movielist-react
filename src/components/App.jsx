@@ -7,7 +7,7 @@ var App = (props) => (
     </nav>
     <div className="row">
       <div className="col">
-        <div>Movie List here!</div>
+        <MovieList movies={props.movies} />
       </div>
     </div>
   </div>
