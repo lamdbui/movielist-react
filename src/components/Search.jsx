@@ -15,8 +15,6 @@ class Search extends React.Component {
   }
 
   handleSearchClick() {
-    //this.setState({value: event.target.value});
-    console.log('LAM', this.state.searchQuery);
     this.props.filterMovieListCallback(this.state.searchQuery);
   }
 
