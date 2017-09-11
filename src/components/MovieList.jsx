@@ -6,7 +6,7 @@ class MovieList extends React.Component {
   generateMovieEntries() {
     // case where we have to movies(e.g. when a search returns back no results)
     if (this.props.movies.length === 0) {
-      let noMoviesFound = {
+      const noMoviesFound = {
         title: 'No movies found...'
       };
       return <MovieListEntry movie={noMoviesFound} key={0} />

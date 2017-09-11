@@ -8,6 +8,7 @@ class App extends React.Component {
 
     this.stateUpdateMovieList = this.stateUpdateMovieList.bind(this);
     this.filterMovieList = this.filterMovieList.bind(this);
+    this.addMovieToList = this.addMovieToList.bind(this);
   }
 
   stateUpdateMovieList(newMovieList) {
@@ -23,14 +24,32 @@ class App extends React.Component {
     this.stateUpdateMovieList(filteredMovieList);
   }
 
+  addMovieToList(newMovieTitle) {
+    var duplicateMovieTitleFound = this.state.movies.some(movie => {
+      if (movie.title === newMovieTitle) {
+        return true;
+      }
+    });
+    if (!duplicateMovieTitleFound) {
+      const newMovie = { title: newMovieTitle };
+      this.state.movies.push(newMovie);
+      this.stateUpdateMovieList(this.state.movies);
+    }
+  }
+
   render() {
     return (
-      <div>
+      <div className="container">
         <nav className="navbar">
           <h3 className="text-muted">Movie List</h3>
           <Search filterMovieListCallback={this.filterMovieList} />
         </nav>
-        <div className="row">
+        <div className="row mb-2">
+          <div className="col">
+            <Add addMovieToListCallback={this.addMovieToList} />
+          </div>
+        </div>
+        <div className="row mb-2">
           <div className="col">
             <MovieList movies={this.state.movies} />
           </div>
