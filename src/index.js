@@ -1,1 +1,1 @@
-ReactDOM.render(<App movies={movies} />, document.getElementById('app'));
+ReactDOM.render(<App movies={[]} />, document.getElementById('app'));

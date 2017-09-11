@@ -16,12 +16,13 @@ class Search extends React.Component {
 
   handleSearchClick() {
     this.props.filterMovieListCallback(this.state.searchQuery);
+    this.setState({ searchQuery: '' });
   }
 
   render() {
     return (
       <div className="search-bar form-inline">
-        <input className="form-control" type="text" placeholder="Search..." onChange={this.handleChange} />
+        <input className="form-control" type="text" placeholder="Search..." value={this.state.searchQuery} onChange={this.handleChange} />
         <button className="btn hidden-sm-down" onClick={this.handleSearchClick}>
           <span className="glyphicon glyphicon-search"></span>
         </button>

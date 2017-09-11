@@ -15,17 +15,20 @@ class Add extends React.Component {
   }
 
   handleAddClick() {
-    const addQuery = this.state.addQuery;
+    const addQueryText = this.state.addQuery;
     // TODO: should we send a notification if the query is invalid?
-    if (addQuery) {
-      this.props.addMovieToListCallback(addQuery);
+    if (addQueryText) {
+      // only clear the text if the new Movie was successfully added
+      if(this.props.addMovieToListCallback(addQueryText)) {
+        this.setState({ addQuery: '' });
+      }
     }
   }
 
   render() {
     return (
       <div className="form-inline">
-        <input className="form-control" type="text" placeholder="Add New Movie..." onChange={this.handleChange} />
+        <input className="form-control" type="text" value={this.state.addQuery} placeholder="Add New Movie..." onChange={this.handleChange} />
         <button className="btn hidden-sm-down" onClick={this.handleAddClick}>
           <span className="glyphicon glyphicon-plus"></span>
         </button>

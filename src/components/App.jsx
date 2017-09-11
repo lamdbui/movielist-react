@@ -26,15 +26,16 @@ class App extends React.Component {
 
   addMovieToList(newMovieTitle) {
     var duplicateMovieTitleFound = this.state.movies.some(movie => {
-      if (movie.title === newMovieTitle) {
-        return true;
-      }
+      return (movie.title === newMovieTitle);
     });
+    // indicate true/false if the movie was successully added or not
     if (!duplicateMovieTitleFound) {
       const newMovie = { title: newMovieTitle };
       this.state.movies.push(newMovie);
       this.stateUpdateMovieList(this.state.movies);
+      return true;
     }
+    return false;
   }
 
   render() {
